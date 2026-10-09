@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B7A5B">
+<title>صيدلية الشفاء | اطلب أونلاين</title>
+<meta name="description" content="اطلب منتجات الصيدلية من بيتك. ابحث، اختار الكمية، وابعت طلبك على واتساب أو الإيميل.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F8F6;--card:#fff;--ink:#10282A;--mute:#5B7377;--line:#DCEAE6;--a:#0B7A5B;--soft:#E1F3EC;--warn:#B45309;--r:18px;
+--font:'IBM Plex Sans Arabic',Tahoma,'Segoe UI',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.8;font-size:1.02rem;padding-bottom:5.5rem}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:3px solid #38BDF8;outline-offset:2px}
+svg{width:1.2em;height:1.2em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.1rem}
+header{position:sticky;top:0;z-index:20;background:var(--a);color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.15rem}
+.logo i{width:34px;height:34px;border-radius:10px;background:#fff;color:var(--a);display:grid;place-items:center}
+.cartbtn{position:relative;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.badge{position:absolute;top:-2px;left:-2px;min-width:20px;height:20px;border-radius:10px;background:#FACC15;color:#10282A;font-size:.75rem;font-weight:700;display:grid;place-items:center;padding:0 5px}
+.hero{background:linear-gradient(180deg,var(--a),#0A6B50);color:#fff;padding:1.4rem 0 2.6rem}
+.hero h1{font-size:clamp(1.5rem,5.5vw,2.3rem);line-height:1.4;margin-bottom:.4rem}
+.hero p{opacity:.85;margin-bottom:1.1rem}
+.search{position:relative}
+.search input{width:100%;font:inherit;padding:.95rem 3rem .95rem 1rem;border-radius:16px;border:0;background:#fff;color:var(--ink);box-shadow:0 14px 30px -16px rgba(0,0,0,.5)}
+.search svg{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--a)}
+.search input:focus{outline:3px solid #FACC15}
+.chips{display:flex;gap:.5rem;overflow-x:auto;padding:1rem 0 .6rem;scrollbar-width:none}
+.chip{white-space:nowrap;padding:.4rem 1.1rem;border-radius:999px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:.93rem}
+.chip[aria-pressed=true]{background:var(--a);border-color:var(--a);color:#fff}
+.note{background:#FEF3C7;color:#78350F;border-radius:14px;padding:.7rem 1rem;font-size:.9rem;margin:.4rem 0 1rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:1fr}
+@media(min-width:620px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+.p{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1rem;display:grid;grid-template-columns:64px 1fr;gap:.2rem .9rem;align-items:center}
+.ph{grid-row:1/3;width:64px;height:64px;border-radius:16px;display:grid;place-items:center;background:var(--soft);color:var(--a)}
+.ph svg{width:30px;height:30px}
+.p h3{font-size:1rem;line-height:1.5}
+.p small{color:var(--mute);display:block;font-size:.85rem}
+.price{font-weight:700;color:var(--a)}
+.act{grid-column:1/-1;display:flex;align-items:center;gap:.6rem;margin-top:.5rem}
+.st{display:flex;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:999px}
+.st button{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--a)}
+.st button:active{background:var(--soft)}
+.st b{min-width:1.6rem;text-align:center}
+.add{flex:1;background:var(--a);color:#fff;font-weight:700;border-radius:999px;height:42px;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.add:active{transform:scale(.97)}
+.empty{text-align:center;color:var(--mute);padding:2rem 0}
+footer{text-align:center;color:var(--mute);font-size:.85rem;padding:1.5rem 1rem}
+
+.bottom{position:fixed;inset:auto 0 0 0;z-index:30;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom,0px));background:var(--ink);color:#fff;transform:translateY(110%);transition:transform .3s}
+.bottom.show{transform:none}
+.bottom .in{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.bottom small{opacity:.7;display:block}
+.bottom .go{background:#FACC15;color:var(--ink);font-weight:700;padding:.65rem 1.4rem;border-radius:999px}
+
+.ov{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:none}
+.ov.open{display:block}
+.sheet{position:absolute;inset:auto 0 0 0;max-height:92svh;overflow:auto;background:var(--card);border-radius:24px 24px 0 0;padding:1.2rem 1.1rem calc(1.4rem + env(safe-area-inset-bottom,0px));max-width:620px;margin:0 auto}
+.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem}
+.sh h2{font-size:1.3rem}
+.x{width:38px;height:38px;border-radius:50%;background:var(--bg);display:grid;place-items:center}
+.ci{display:flex;align-items:center;gap:.7rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.ci div:first-child{flex:1;line-height:1.5}
+.ci small{color:var(--mute);display:block}
+.ci .st b{min-width:1.4rem}
+.ci .st button{width:34px;height:34px}
+.rm{color:#B91C1C}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:1.15rem;padding:.9rem 0}
+form{display:grid;gap:.7rem}
+label{display:grid;gap:.25rem;font-weight:600;font-size:.92rem}
+input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:.65rem .85rem}
+textarea{min-height:4.5rem;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--a)}
+.send{display:grid;gap:.6rem;margin-top:.4rem}
+.send button{height:48px;border-radius:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.wa{background:#16A34A;color:#fff}
+.em{background:var(--bg);border:1.5px solid var(--a);color:var(--a)}
+.toast{position:fixed;top:72px;left:50%;transform:translate(-50%,-20px);background:var(--ink);color:#fff;padding:.5rem 1.2rem;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:60;font-size:.92rem}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap bar">
+ <div class="logo"><i><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i><span id="ph-name">صيدلية الشفاء</span></div>
+ <button class="cartbtn" id="open" aria-label="فتح السلة"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L21 8H6"/></svg><span class="badge" id="badge">0</span></button>
+</div></header>
+
+<div class="hero"><div class="wrap">
+ <h1>اطلب من الصيدلية وانت في بيتك</h1>
+ <p>ابحث عن المنتج، اختار الكمية، وابعت طلبك.</p>
+ <div class="search"><input id="q" type="search" placeholder="ابحث عن دواء أو منتج..." aria-label="ابحث" autocomplete="off"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+</div></div>
+
+<main class="wrap">
+ <div class="chips" id="chips" role="group" aria-label="التصنيفات"></div>
+ <div class="note">الأدوية التي تُصرف بروشتة طبية لازم ترفق الروشتة عند الاستلام. الصيدلي هيراجع طلبك ويتواصل معاك قبل التجهيز.</div>
+ <div class="grid" id="grid"></div>
+ <p class="empty" id="empty" hidden>مفيش منتج بالاسم ده. ابعتلنا اسمه على واتساب وهنقولك لو متوفر.</p>
+</main>
+<footer>المنتجات والأسعار المعروضة نموذج للعرض، وتتغير حسب المتوفر في الصيدلية.</footer>
+
+<div class="bottom" id="bottom"><div class="in">
+ <div><small id="bn"></small><b id="bt"></b></div>
+ <button class="go" id="go">مراجعة الطلب</button>
+</div></div>
+
+<div class="ov" id="ov"><div class="sheet" role="dialog" aria-modal="true" aria-label="سلة المشتريات">
+ <div class="sh"><h2>سلتك</h2><button class="x" id="close" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+ <div id="items"></div>
+ <div class="tot"><span>الإجمالي</span><span id="total"></span></div>
+ <form id="f" novalidate>
+  <label>الاسم<input name="n" autocomplete="name" required></label>
+  <label>رقم الموبايل<input name="t" type="tel" inputmode="tel" autocomplete="tel" required></label>
+  <label>العنوان<input name="a" autocomplete="street-address" required></label>
+  <label>ملاحظات (اختياري)<textarea name="m"></textarea></label>
+  <div class="send">
+   <button type="button" class="wa" id="wa">إرسال الطلب على واتساب</button>
+   <button type="button" class="em" id="em">إرسال الطلب على الإيميل</button>
+  </div>
+ </form>
+</div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ===== عدّل بيانات الصيدلية من هنا ===== */
+const CONFIG = {
+  name: "صيدلية الشفاء",
+  whatsapp: "201203482663",          // رقم الصيدلية بالصيغة الدولية من غير +
+  email: "abanoub2008.05@gmail.com", // إيميل الصيدلية
+  currency: "ج.م"
+};
+const CATS = ["الكل","مسكنات وبرد","فيتامينات","عناية بالبشرة","أم وطفل","إسعافات وأجهزة"];
+const PRODUCTS = [
+  {n:"باراسيتامول 500 مجم",s:"20 قرص",p:30,c:"مسكنات وبرد"},
+  {n:"شراب كحة للأطفال",s:"عبوة 120 مل",p:45,c:"مسكنات وبرد"},
+  {n:"أقراص استحلاب للحلق",s:"16 قرص",p:38,c:"مسكنات وبرد"},
+  {n:"محلول ملح للأنف",s:"بخاخ 30 مل",p:55,c:"مسكنات وبرد"},
+  {n:"فيتامين سي 1000 مجم",s:"20 قرص فوار",p:85,c:"فيتامينات"},
+  {n:"فيتامين د3",s:"30 كبسولة",p:110,c:"فيتامينات"},
+  {n:"مالتي فيتامين",s:"30 قرص",p:140,c:"فيتامينات"},
+  {n:"كريم مرطب للبشرة الجافة",s:"عبوة 100 جم",p:95,c:"عناية بالبشرة"},
+  {n:"واقي شمس SPF 50",s:"عبوة 50 مل",p:210,c:"عناية بالبشرة"},
+  {n:"غسول وجه للبشرة الدهنية",s:"عبوة 150 مل",p:120,c:"عناية بالبشرة"},
+  {n:"حفاضات أطفال مقاس 4",s:"عبوة 40 قطعة",p:260,c:"أم وطفل"},
+  {n:"مناديل مبللة للأطفال",s:"80 منديل",p:40,c:"أم وطفل"},
+  {n:"كريم تسلخات للأطفال",s:"عبوة 50 جم",p:60,c:"أم وطفل"},
+  {n:"شريط جروح لاصق",s:"20 قطعة",p:25,c:"إسعافات وأجهزة"},
+  {n:"جهاز قياس حرارة رقمي",s:"قطعة",p:130,c:"إسعافات وأجهزة"},
+  {n:"قطن طبي معقم",s:"عبوة 100 جم",p:22,c:"إسعافات وأجهزة"}
+];
+/* ====================================== */
+
+const $ = s => document.querySelector(s);
+const cur = CONFIG.currency;
+const norm = s => s.toLowerCase().replace(/[\u064B-\u065F\u0640]/g,"").replace(/[أإآ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").trim();
+const sel = {}, cart = {};
+let cat = "الكل", query = "";
+try { Object.assign(cart, JSON.parse(localStorage.getItem("cart") || "{}")); } catch (e) {}
+const save = () => { try { localStorage.setItem("cart", JSON.stringify(cart)); } catch (e) {} };
+
+document.title = CONFIG.name + " | اطلب أونلاين";
+$("#ph-name").textContent = CONFIG.name;
+
+const plus = '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>';
+const minus = '<svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>';
+const pill = '<svg viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.2 4.2 0 0 0-6-6l-10 10a4.2 4.2 0 0 0 6 6z"/><path d="m8.5 8.5 7 7"/></svg>';
+
+function renderChips() {
+  $("#chips").innerHTML = CATS.map(c => `<button class="chip" data-c="${c}" aria-pressed="${c === cat}">${c}</button>`).join("");
+}
+function renderGrid() {
+  const q = norm(query);
+  const list = PRODUCTS.map((p, i) => ({...p, i})).filter(p => (cat === "الكل" || p.c === cat) && (!q || norm(p.n + " " + p.s).includes(q)));
+  $("#grid").innerHTML = list.map(p => `
+    <article class="p">
+      <div class="ph">${pill}</div>
+      <div><h3>${p.n}</h3><small>${p.s}</small><span class="price">${p.p} ${cur}</span></div>
+      <div class="act">
+        <div class="st"><button data-m="${p.i}" aria-label="تقليل">${minus}</button><b id="s${p.i}">${sel[p.i] || 1}</b><button data-pl="${p.i}" aria-label="زيادة">${plus}</button></div>
+        <button class="add" data-add="${p.i}">أضف إلى السلة</button>
+      </div>
+    </article>`).join("");
+  $("#empty").hidden = list.length > 0;
+}
+function totals() {
+  let n = 0, t = 0;
+  for (const i in cart) { n += cart[i]; t += cart[i] * PRODUCTS[i].p; }
+  return {n, t};
+}
+function renderCart() {
+  const {n, t} = totals();
+  $("#badge").textContent = n;
+  $("#bn").textContent = n + (n === 1 ? " منتج" : " منتجات");
+  $("#bt").textContent = t + " " + cur;
+  $("#bottom").classList.toggle("show", n > 0);
+  $("#total").textContent = t + " " + cur;
+  const keys = Object.keys(cart);
+  $("#items").innerHTML = keys.length ? keys.map(i => `
+    <div class="ci"><div>${PRODUCTS[i].n}<small>${PRODUCTS[i].p} ${cur} × ${cart[i]}</small></div>
+      <div class="st"><button data-cm="${i}" aria-label="تقليل">${minus}</button><b>${cart[i]}</b><button data-cp="${i}" aria-label="زيادة">${plus}</button></div>
+      <button class="rm x" data-rm="${i}" aria-label="حذف"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button></div>`).join("")
+    : '<p class="empty">السلة فاضية.</p>';
+}
+function toast(m) { const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("on"), 1400); }
+
+$("#chips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b) { cat = b.dataset.c; renderChips(); renderGrid(); } });
+$("#q").addEventListener("input", e => { query = e.target.value; renderGrid(); });
+$("#grid").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const d = b.dataset;
+  if (d.pl !== undefined) { sel[d.pl] = Math.min(99, (sel[d.pl] || 1) + 1); $("#s" + d.pl).textContent = sel[d.pl]; }
+  if (d.m !== undefined) { sel[d.m] = Math.max(1, (sel[d.m] || 1) - 1); $("#s" + d.m).textContent = sel[d.m]; }
+  if (d.add !== undefined) {
+    const q = sel[d.add] || 1;
+    cart[d.add] = Math.min(99, (cart[d.add] || 0) + q);
+    sel[d.add] = 1; $("#s" + d.add).textContent = 1;
+    save(); renderCart(); toast("اتضاف للسلة: " + PRODUCTS[d.add].n);
+  }
+});
+$("#items").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const d = b.dataset;
+  if (d.cp !== undefined) cart[d.cp] = Math.min(99, cart[d.cp] + 1);
+  if (d.cm !== undefined) { cart[d.cm]--; if (cart[d.cm] <= 0) delete cart[d.cm]; }
+  if (d.rm !== undefined) delete cart[d.rm];
+  save(); renderCart();
+});
+const openCart = () => { $("#ov").classList.add("open"); document.body.style.overflow = "hidden"; };
+const closeCart = () => { $("#ov").classList.remove("open"); document.body.style.overflow = ""; };
+$("#open").addEventListener("click", openCart);
+$("#go").addEventListener("click", openCart);
+$("#close").addEventListener("click", closeCart);
+$("#ov").addEventListener("click", e => { if (e.target.id === "ov") closeCart(); });
+
+function buildOrder() {
+  const f = $("#f"), d = new FormData(f);
+  const n = (d.get("n") || "").trim(), t = (d.get("t") || "").trim(), a = (d.get("a") || "").trim();
+  if (!Object.keys(cart).length) { toast("السلة فاضية"); return null; }
+  if (!n || !t || !a) { toast("اكتب الاسم والموبايل والعنوان"); f.reportValidity && f.reportValidity(); return null; }
+  const lines = Object.keys(cart).map(i => `• ${PRODUCTS[i].n} (${PRODUCTS[i].s}) × ${cart[i]} = ${cart[i] * PRODUCTS[i].p} ${cur}`).join("\n");
+  const m = (d.get("m") || "").trim();
+  return `طلب جديد من الموقع\n\nالاسم: ${n}\nالموبايل: ${t}\nالعنوان: ${a}\n\nالطلب:\n${lines}\n\nالإجمالي: ${totals().t} ${cur}` + (m ? `\nملاحظات: ${m}` : "");
+}
+$("#wa").addEventListener("click", () => {
+  const msg = buildOrder(); if (!msg) return;
+  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
+});
+$("#em").addEventListener("click", () => {
+  const msg = buildOrder(); if (!msg) return;
+  location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent("طلب جديد من الموقع")}&body=${encodeURIComponent(msg)}`;
+});
+addEventListener("keydown", e => { if (e.key === "Escape") closeCart(); });
+
+renderChips(); renderGrid(); renderCart();
+</script>
+</body>
+</html>
